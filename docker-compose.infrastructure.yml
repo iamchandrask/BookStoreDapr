@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: dapr-demo-redis
+    ports:
+      - "6379:6379"
+
+  dapr-placement:
+    image: "daprio/dapr"
+    container_name: dapr-placement
+    command: ["./placement", "-port", "50005"]
+    ports:
+      - "50005:50005"
